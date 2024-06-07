@@ -12,19 +12,11 @@
   height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .app-logo {
-    animation: app-logo-spin infinite 20s linear;
-  }
-}
-
 .text {
   display: inline;
-  font-family: system-ui;
 }
 
 .app-link {
-  font-family: system-ui;
   font-weight: bold;
   font-size: larger;
   gap: 8px;
@@ -91,26 +83,6 @@ button {
 .main {
   min-width: 372px;
   max-height: 100%;
-}
-
-.header {
-  display: flex;
-  background-color: #fff;
-  width: 100%;
-  height: 80px;
-  padding: 21px 50px 21px 49px;
-  justify-content: space-between;
-  align-items: center;
-  font-family: system-ui;
-  z-index: 1;
-  position: relative;
-  font-size: 14px;
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 
 .logo {

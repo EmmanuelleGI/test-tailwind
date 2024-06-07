@@ -6,7 +6,7 @@ yarn install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
 
-tailwind.config.js :
+tailwind.config.js : https://tailwindcss.com/docs/adding-custom-styles 
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -33,6 +33,16 @@ yarn add @headlessui/react framer-motion clsx
 
 icon: 
 yarn add @heroicons/react
+
+liste des icons : https://heroicons.com/
+
+customiser les styles (couleurs, borders, font-family ...) dans tailwind.config.js
+
+couleurs : https://tailwindcss.com/docs/customizing-colors 
+
+classes : https://tailwind.build/classes 
+
+
 
 
 

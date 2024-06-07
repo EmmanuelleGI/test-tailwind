@@ -24,11 +24,18 @@ import {
 import * as Headless from '@headlessui/react';
 import {
   ArrowRightStartOnRectangleIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
   ChevronDownIcon,
   ChevronUpIcon,
+  ClipboardDocumentIcon,
   Cog8ToothIcon,
+  CpuChipIcon,
+  CubeIcon,
+  IdentificationIcon,
   LightBulbIcon,
+  PaperAirplaneIcon,
   PlusIcon,
+  PresentationChartBarIcon,
   ShieldCheckIcon,
   UserIcon,
 } from '@heroicons/react/16/solid';
@@ -44,7 +51,7 @@ import {
   TicketIcon,
 } from '@heroicons/react/20/solid';
 
-function LayoutSidebar() {
+function LayoutSidebar({children}) {
   return (
     <SidebarLayout
       navbar={
@@ -94,19 +101,19 @@ function LayoutSidebar() {
           <SidebarHeader>
             <Dropdown>
               <DropdownButton as={SidebarItem} className="lg:mb-2.5">
-                <Avatar src="/tailwind-logo.svg" />
-                <SidebarLabel>Tailwind Labs</SidebarLabel>
+                <HomeIcon />
+                <SidebarLabel>Simio</SidebarLabel>
                 <ChevronDownIcon />
               </DropdownButton>
               <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
-                <DropdownItem href="/teams/1/settings">
+                <DropdownItem href="/settings">
                   <Cog8ToothIcon />
                   <DropdownLabel>Settings</DropdownLabel>
                 </DropdownItem>
                 <DropdownDivider />
-                <DropdownItem href="/teams/1">
+                <DropdownItem href="/home">
                   <Avatar slot="icon" src="/tailwind-logo.svg" />
-                  <DropdownLabel>Tailwind Labs</DropdownLabel>
+                  <DropdownLabel>Simio</DropdownLabel>
                 </DropdownItem>
                 <DropdownItem href="/teams/2">
                   <Avatar slot="icon" initials="WC" className="bg-purple-500 text-white" />
@@ -119,58 +126,43 @@ function LayoutSidebar() {
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            <SidebarSection className="max-lg:hidden">
-              <SidebarItem href="/search">
-                <MagnifyingGlassIcon />
-                <SidebarLabel>Search</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/inbox">
-                <InboxIcon />
-                <SidebarLabel>Inbox</SidebarLabel>
-              </SidebarItem>
-            </SidebarSection>
           </SidebarHeader>
           <SidebarBody>
             <SidebarSection>
               <SidebarItem href="/">
-                <HomeIcon />
-                <SidebarLabel>Home</SidebarLabel>
+                <ChatBubbleOvalLeftEllipsisIcon />
+                <SidebarLabel>Conversations</SidebarLabel>
               </SidebarItem>
               <SidebarItem href="/events">
-                <Square2StackIcon />
-                <SidebarLabel>Events</SidebarLabel>
+                <PaperAirplaneIcon />
+                <SidebarLabel>Campagnes</SidebarLabel>
               </SidebarItem>
               <SidebarItem href="/orders">
-                <TicketIcon />
-                <SidebarLabel>Orders</SidebarLabel>
+                <IdentificationIcon />
+                <SidebarLabel>Contacts</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/broadcasts">
+                <CpuChipIcon />
+                <SidebarLabel>Chatbots</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/broadcasts">
+                <ClipboardDocumentIcon />
+                <SidebarLabel>Templates</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/broadcasts">
+                <CubeIcon />
+                <SidebarLabel>Automations</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/broadcasts">
+                <PresentationChartBarIcon />
+                <SidebarLabel>Statistiques</SidebarLabel>
               </SidebarItem>
               <SidebarItem href="/settings">
                 <Cog6ToothIcon />
                 <SidebarLabel>Settings</SidebarLabel>
               </SidebarItem>
-              <SidebarItem href="/broadcasts">
-                <MegaphoneIcon />
-                <SidebarLabel>Broadcasts</SidebarLabel>
-              </SidebarItem>
-            </SidebarSection>
-            <SidebarSection className="max-lg:hidden">
-              <SidebarHeading>Upcoming Events</SidebarHeading>
-              <SidebarItem href="/events/1">Bear Hug: Live in Concert</SidebarItem>
-              <SidebarItem href="/events/2">Viking People</SidebarItem>
-              <SidebarItem href="/events/3">Six Fingers — DJ Set</SidebarItem>
-              <SidebarItem href="/events/4">We All Look The Same</SidebarItem>
             </SidebarSection>
             <SidebarSpacer />
-            <SidebarSection>
-              <SidebarItem href="/support">
-                <QuestionMarkCircleIcon />
-                <SidebarLabel>Support</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/changelog">
-                <SparklesIcon />
-                <SidebarLabel>Changelog</SidebarLabel>
-              </SidebarItem>
-            </SidebarSection>
           </SidebarBody>
           <SidebarFooter className="max-lg:hidden">
             <Dropdown>
@@ -214,8 +206,9 @@ function LayoutSidebar() {
           </SidebarFooter>
         </Sidebar>
       }
-    >
+      >
       {/* The page content */}
+      {children}
     </SidebarLayout>
     );
 };

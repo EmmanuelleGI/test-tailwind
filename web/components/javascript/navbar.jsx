@@ -12,7 +12,7 @@ export function Navbar({ className, ...props }) {
 }
 
 export function NavbarDivider({ className, ...props }) {
-  return <div aria-hidden="true" {...props} className={clsx(className, 'h-6 w-px bg-zinc-950/10 dark:bg-white/10')} />
+  return <div aria-hidden="true" {...props} className={clsx(className, 'h-6 w-px bg-customBackgroudColor-950/10 dark:bg-white/10')} />
 }
 
 export function NavbarSection({ className, ...props }) {
@@ -58,7 +58,7 @@ export const NavbarItem = React.forwardRef(function NavbarItem(
       {current && (
         <motion.span
           layoutId="current-indicator"
-          className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-zinc-950 dark:bg-white"
+          className="absolute inset-x-2 -bottom-2.5 h-0.5 rounded-full bg-customBackgroundColor-950 dark:bg-white"
         />
       )}
       {'href' in props ? (

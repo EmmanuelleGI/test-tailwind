@@ -3,6 +3,8 @@ import { Suspense, useEffect } from "react";
 import { Outlet, Route, RouterProvider, createBrowserRouter, createRoutesFromElements, useNavigate, Link } from "react-router-dom";
 import { api } from "./api";
 import Index from "./routes/index";
+import Settings from "./routes/settings";
+import Home from "./routes/home";
 import SignedInPage from "./routes/signed-in";
 import SignInPage from "./routes/sign-in";
 import SignUpPage from "./routes/sign-up";
@@ -16,6 +18,7 @@ import { Sidebar, SidebarItem, SidebarLabel, SidebarBody, SidebarSection } from 
 import { Cog6ToothIcon, HomeIcon, MegaphoneIcon, Square2StackIcon, TicketIcon } from '@heroicons/react/20/solid'
 import "./App.css";
 import LayoutSidebar from "./components/LayoutSidebar";
+import PageHeading from "./components/PageHeading";
 
 
 const App = () => {
@@ -34,6 +37,20 @@ const App = () => {
             </SignedOutOrRedirect>
           }
         />
+        <Route
+          path="settings"
+          element={
+            <SignedInOrRedirect>
+              <Settings />
+            </SignedInOrRedirect>
+          }/>
+          <Route
+          path="home"
+          element={
+            <SignedInOrRedirect>
+              <Home />
+            </SignedInOrRedirect>
+          }/>
         <Route
           path="signed-in"
           element={
@@ -100,70 +117,54 @@ const App = () => {
 const Layout = () => {
   const navigate = useNavigate();
 
+  const handleAction = () => {
+    console.log("click sur action button");
+  };
+
   return (
-    <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}>
-      <Header />
+    /* <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}> */
+      /* <Header />
       <div className="app">
         <div className="app-content">
           <div className="main">
             <Outlet />
           </div>
         </div>
-      </div>
+      </div> */
 
-      <LayoutSidebar></LayoutSidebar>
-
-      {/* <Button
-      color="teal"
-      outline
-      >
-        Test
-      </Button> 
-      <Sidebar>
-      <SidebarBody>
-        <SidebarSection>
-          <SidebarItem href="/">
-            <HomeIcon />
-            <SidebarLabel>Home</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/events">
-            <Square2StackIcon />
-            <SidebarLabel>Events</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/orders">
-            <TicketIcon />
-            <SidebarLabel>Orders</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/broadcasts">
-            <MegaphoneIcon />
-            <SidebarLabel>Campaigns</SidebarLabel>
-          </SidebarItem>
-          <SidebarItem href="/settings">
-            <Cog6ToothIcon />
-            <SidebarLabel>Settings</SidebarLabel>
-          </SidebarItem>
-        </SidebarSection>
-      </SidebarBody> 
-    </Sidebar>*/}
-      
+    <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}>
+      <LayoutSidebar>
+        <Outlet />
+      </LayoutSidebar>
     </Provider>
+
+      /* <LayoutSidebar>
+        <PageHeading
+        title="Home"
+        action="Créer un template"
+        handleAction={handleAction}
+        ></PageHeading>
+        
+      </LayoutSidebar>
+      
+    </Provider> */
   );
 };
 
-const Header = () => {
-  return (
-    <div className="header">
-      <a href="/" target="_self" rel="noreferrer" style={{ textDecoration: "none" }}>
-        {<div className="logo">{process.env.GADGET_PUBLIC_APP_SLUG}</div>}
-      </a>
-      <div className="header-content">
-        <SignedOut>
-          <Link to="/sign-in" style={{ color: "black" }}>Sign in</Link>
-          <Link to="/sign-up" style={{ color: "black" }}>Sign up</Link>
-        </SignedOut>
-      </div>
-    </div>
-  );
-};
+// const Header = () => {
+//   return (
+//     <div className="header">
+//       <a href="/" target="_self" rel="noreferrer" style={{ textDecoration: "none" }}>
+//         {<div className="logo">{process.env.GADGET_PUBLIC_APP_SLUG}</div>}
+//       </a>
+//       <div className="header-content">
+//         <SignedOut>
+//           <Link to="/sign-in" style={{ color: "black" }}>Sign in</Link>
+//           <Link to="/sign-up" style={{ color: "black" }}>Sign up</Link>
+//         </SignedOut>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default App;

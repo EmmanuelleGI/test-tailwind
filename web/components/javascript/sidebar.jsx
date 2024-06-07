@@ -17,7 +17,7 @@ export function SidebarHeader({ className, ...props }) {
       {...props}
       className={clsx(
         className,
-        'flex flex-col border-b border-zinc-950/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
+        'flex flex-col border-b border-orange/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
       )}
     />
   )
@@ -41,7 +41,7 @@ export function SidebarFooter({ className, ...props }) {
       {...props}
       className={clsx(
         className,
-        'flex flex-col border-t border-zinc-950/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
+        'flex flex-col border-t border-orange/5 p-4 dark:border-white/5 [&>[data-slot=section]+[data-slot=section]]:mt-2.5'
       )}
     />
   )
@@ -58,7 +58,7 @@ export function SidebarSection({ className, ...props }) {
 }
 
 export function SidebarDivider({ className, ...props }) {
-  return <hr {...props} className={clsx(className, 'my-4 border-t border-zinc-950/5 lg:-mx-4 dark:border-white/5')} />
+  return <hr {...props} className={clsx(className, 'my-4 border-t border-orange/5 lg:-mx-4 dark:border-white/5')} />
 }
 
 export function SidebarSpacer({ className, ...props }) {
@@ -86,9 +86,9 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
     // Avatar
     'data-[slot=avatar]:*:-m-0.5 data-[slot=avatar]:*:size-7 data-[slot=avatar]:*:[--ring-opacity:10%] sm:data-[slot=avatar]:*:size-6',
     // Hover
-    'data-[hover]:bg-zinc-950/5 data-[slot=icon]:*:data-[hover]:fill-zinc-950',
+    'data-[hover]:bg-amber-100/5 data-[slot=icon]:*:data-[hover]:fill-zinc-950',
     // Active
-    'data-[active]:bg-zinc-950/5 data-[slot=icon]:*:data-[active]:fill-zinc-950',
+    'data-[active]:bg-amber-100/5 data-[slot=icon]:*:data-[active]:fill-zinc-950',
     // Current
     'data-[slot=icon]:*:data-[current]:fill-zinc-950',
     // Dark mode
@@ -103,7 +103,7 @@ export const SidebarItem = React.forwardRef(function SidebarItem(
       {current && (
         <motion.span
           layoutId="current-indicator"
-          className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-zinc-950 dark:bg-white"
+          className="absolute inset-y-2 -left-4 w-0.5 rounded-full bg-amber-100 dark:bg-white"
         />
       )}
       {'href' in props ? (
