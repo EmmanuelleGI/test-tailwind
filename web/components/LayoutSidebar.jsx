@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from './javascript/avatar';
+import { Avatar } from './tailwind/avatar';
 import {
   Dropdown,
   DropdownButton,
@@ -7,9 +7,9 @@ import {
   DropdownItem,
   DropdownLabel,
   DropdownMenu,
-} from './javascript/dropdown';
-import { SidebarLayout } from './javascript/sidebar-layout';
-import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from './javascript/navbar';
+} from './tailwind/dropdown';
+import { SidebarLayout } from './tailwind/sidebar-layout';
+import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from './tailwind/navbar';
 import {
   Sidebar,
   SidebarBody,
@@ -20,7 +20,7 @@ import {
   SidebarLabel,
   SidebarSection,
   SidebarSpacer,
-} from './javascript/sidebar';
+} from './tailwind/sidebar';
 import * as Headless from '@headlessui/react';
 import {
   ArrowRightStartOnRectangleIcon,
@@ -44,12 +44,8 @@ import {
   HomeIcon,
   InboxIcon,
   MagnifyingGlassIcon,
-  MegaphoneIcon,
-  QuestionMarkCircleIcon,
-  SparklesIcon,
-  Square2StackIcon,
-  TicketIcon,
 } from '@heroicons/react/20/solid';
+import logo from '../assets/logo.png'
 
 function LayoutSidebar({children}) {
   return (
@@ -99,70 +95,77 @@ function LayoutSidebar({children}) {
       sidebar={
         <Sidebar>
           <SidebarHeader>
+            <SidebarItem href="/">
+              <div className='logo'>
+                <img src={logo} alt="logo Simio"/>
+              </div>
+            </SidebarItem>
+          </SidebarHeader>
+          <SidebarBody>
+
+            <SidebarSection>
+
             <Dropdown>
-              <DropdownButton as={SidebarItem} className="lg:mb-2.5">
-                <HomeIcon />
-                <SidebarLabel>Simio</SidebarLabel>
+              <DropdownButton as={SidebarItem} className="lg:mb-2.5" href="/home">
+                  <ChatBubbleOvalLeftEllipsisIcon />
+                  <SidebarLabel>Conversations</SidebarLabel>
+                  <ChevronDownIcon />
+              </DropdownButton>
+              <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
+                <DropdownItem href="/home">
+                  <DropdownLabel>Attribuées</DropdownLabel>
+                </DropdownItem>
+                <DropdownItem href="/home">
+                  <DropdownLabel>Toutes</DropdownLabel>
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+
+              <SidebarItem href="/campaigns">
+                <PaperAirplaneIcon />
+                <SidebarLabel>Campaigns</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/contacts">
+                <IdentificationIcon />
+                <SidebarLabel>Contacts</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/chatbots">
+                <CpuChipIcon />
+                <SidebarLabel>Chatbots</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/templates">
+                <ClipboardDocumentIcon />
+                <SidebarLabel>Templates</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/automations">
+                <CubeIcon />
+                <SidebarLabel>Automations</SidebarLabel>
+              </SidebarItem>
+              <SidebarItem href="/statistiques">
+                <PresentationChartBarIcon />
+                <SidebarLabel>Statistics</SidebarLabel>
+              </SidebarItem>
+
+              <Dropdown>
+              <DropdownButton as={SidebarItem} className="lg:mb-2.5" href="/settings">
+                <Cog6ToothIcon />
+                <SidebarLabel>Settings</SidebarLabel>
                 <ChevronDownIcon />
               </DropdownButton>
               <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
                 <DropdownItem href="/settings">
-                  <Cog8ToothIcon />
-                  <DropdownLabel>Settings</DropdownLabel>
+                  <DropdownLabel>Compagny</DropdownLabel>
                 </DropdownItem>
-                <DropdownDivider />
-                <DropdownItem href="/home">
-                  <Avatar slot="icon" src="/tailwind-logo.svg" />
-                  <DropdownLabel>Simio</DropdownLabel>
-                </DropdownItem>
-                <DropdownItem href="/teams/2">
-                  <Avatar slot="icon" initials="WC" className="bg-purple-500 text-white" />
-                  <DropdownLabel>Workcation</DropdownLabel>
-                </DropdownItem>
-                <DropdownDivider />
-                <DropdownItem href="/teams/create">
-                  <PlusIcon />
-                  <DropdownLabel>New team&hellip;</DropdownLabel>
+                <DropdownItem href="/settings">
+                  <DropdownLabel>User</DropdownLabel>
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
-          </SidebarHeader>
-          <SidebarBody>
-            <SidebarSection>
-              <SidebarItem href="/">
-                <ChatBubbleOvalLeftEllipsisIcon />
-                <SidebarLabel>Conversations</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/events">
-                <PaperAirplaneIcon />
-                <SidebarLabel>Campagnes</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/orders">
-                <IdentificationIcon />
-                <SidebarLabel>Contacts</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/broadcasts">
-                <CpuChipIcon />
-                <SidebarLabel>Chatbots</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/broadcasts">
-                <ClipboardDocumentIcon />
-                <SidebarLabel>Templates</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/broadcasts">
-                <CubeIcon />
-                <SidebarLabel>Automations</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/broadcasts">
-                <PresentationChartBarIcon />
-                <SidebarLabel>Statistiques</SidebarLabel>
-              </SidebarItem>
-              <SidebarItem href="/settings">
-                <Cog6ToothIcon />
-                <SidebarLabel>Settings</SidebarLabel>
-              </SidebarItem>
+
             </SidebarSection>
+
             <SidebarSpacer />
+
           </SidebarBody>
           <SidebarFooter className="max-lg:hidden">
             <Dropdown>

@@ -43,7 +43,7 @@ function MobileSidebar({ open, close, children }) {
           leaveTo="-translate-x-full"
         >
           <Headless.DialogPanel className="fixed inset-y-0 w-full max-w-80 p-2 transition">
-            <div className="flex h-full flex-col rounded-lg bg-white shadow-sm ring-1 ring-zinc-950/5 dark:bg-zinc-900 dark:ring-white/10">
+            <div className="flex h-full flex-col rounded-lg bg-white shadow-sm dark:bg-zinc-900 dark:ring-white/10">
               <div className="-mb-3 px-4 pt-3">
                 <Headless.CloseButton as={NavbarItem} aria-label="Close navigation">
                   <CloseMenuIcon />
@@ -63,7 +63,7 @@ export function SidebarLayout({ navbar, sidebar, children }) {
 
   return (
     <div className="font-custom "> {/* ligne ajoutée pour changer le style global avec les variables custom */}
-      <div className="relative isolate flex min-h-svh w-full max-lg:flex-col lg:bg-yellow dark:bg-yellow dark:lg:bg-zinc-950">
+      <div className="relative isolate flex min-h-svh w-full max-lg:flex-col lg:bg-grey dark:bg-grey dark:lg:bg-zinc-950">
         {/* Sidebar on desktop */}
         <div className="fixed inset-y-0 left-0 w-64 max-lg:hidden">{sidebar}</div>
   
@@ -82,9 +82,9 @@ export function SidebarLayout({ navbar, sidebar, children }) {
           <div className="min-w-0 flex-1">{navbar}</div>
         </header>
   
-        <main className="flex flex-1 flex-col m-2 p-0 lg:min-w-0 lg:pl-64 lg:pr-0 lg:pt-0">
-          <div className="grow p-1 border-orange border-2 lg:rounded-lg lg:bg-white lg:p-0 lg:shadow-sm lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
-            <div className="mx-auto max-w-6xl">{children}</div>
+        <main className="flex flex-1 flex-col m-2 p-2 lg:min-w-0 lg:pl-64 lg:pr-0 lg:pt-0">
+          <div className="grow mr-2 border-yellow border-2 rounded-customBorderRadius shadow-shadowcustom lg:bg-white lg:p-0  lg:ring-1 lg:ring-zinc-950/5 dark:lg:bg-zinc-900 dark:lg:ring-white/10">
+            <div className="mx-auto max-w-full">{children}</div>
                 {/* Content */}
           </div>
         </main>

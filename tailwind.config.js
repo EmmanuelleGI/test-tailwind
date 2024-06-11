@@ -1,5 +1,3 @@
-const { buildErrorMessage } = require('vite');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -9,15 +7,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'yellow': '#D9D9D9', 
-        'orange': '#FAC70C',
+        'grey': '#F1F1F1', 
+        'yellow': '#FAC70C',
       },
       borderRadius: {
-        'customBorderRadius': '3.5rem'
+        'customBorderRadius': '0.75rem'
       },
       fontFamily: {
-        custom: ['Josefin Sans', 'sans-serif']
-      }
+        custom: ['Bricolage Grotesque', 'sans-serif'],
+      },
+      boxShadow: {
+        shadowcustom: '4px 3px 0px 2px #FAC70C',
+        shadowbutton: '0px 2px 0px 0px black'
+      },
     },
   },
   plugins: [],

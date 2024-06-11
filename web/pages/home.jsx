@@ -10,7 +10,7 @@ export default function Home() {
    
       <PageHeading
         title="Home"
-        action="Créer un template"
+        action="Create a campaign"
         handleAction={handleAction}
       />
 

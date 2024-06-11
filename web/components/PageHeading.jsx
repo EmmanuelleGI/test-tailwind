@@ -1,5 +1,5 @@
 import { ChevronLeftIcon, ReceiptRefundIcon } from '@heroicons/react/16/solid';
-import { Button } from './javascript/button';
+import { Button } from './tailwind/button';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -11,9 +11,6 @@ export default function PageHeading({
   iconAction,
   handleAction,
 }) {
-  const handleRetour = () => {
-    console.log('click sur bouton retour');
-  };
 
   return (
     <div className="md:flex md:items-center md:justify-between border-b pb-3 m-5">
@@ -24,7 +21,7 @@ export default function PageHeading({
       </div>
       <div className="mt-4 flex md:ml-4 md:mt-0">
         {action && (
-          <Button className="bg-orange shadow-xl" color="orange" onClick={handleAction}>
+          <Button color="yellowCustom" onClick={handleAction}>
             {iconAction}
             {action}
           </Button>
@@ -33,3 +30,7 @@ export default function PageHeading({
     </div>
   );
 }
+
+
+
+

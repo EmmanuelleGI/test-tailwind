@@ -2,7 +2,7 @@ Installation Tailwind (with Vite)
 https://tailwindcss.com/docs/guides/vite
 
 cmd : 
-yarn install -D tailwindcss postcss autoprefixer
+yarn add -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 
 

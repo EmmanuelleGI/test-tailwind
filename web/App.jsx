@@ -3,8 +3,9 @@ import { Suspense, useEffect } from "react";
 import { Outlet, Route, RouterProvider, createBrowserRouter, createRoutesFromElements, useNavigate, Link } from "react-router-dom";
 import { api } from "./api";
 import Index from "./routes/index";
-import Settings from "./routes/settings";
-import Home from "./routes/home";
+import Settings from "./pages/settings";
+import Home from "./pages/home";
+import Templates from "./pages/templates"
 import SignedInPage from "./routes/signed-in";
 import SignInPage from "./routes/sign-in";
 import SignUpPage from "./routes/sign-up";
@@ -12,13 +13,9 @@ import ResetPasswordPage from "./routes/reset-password";
 import VerifyEmailPage from "./routes/verify-email";
 import ChangePassword from "./routes/change-password";
 import ForgotPassword from "./routes/forgot-password";
-import LayoutSiderbar from "./components/LayoutSidebar";
-import { Button } from './components/javascript/button'
-import { Sidebar, SidebarItem, SidebarLabel, SidebarBody, SidebarSection } from "./components/javascript/sidebar";
-import { Cog6ToothIcon, HomeIcon, MegaphoneIcon, Square2StackIcon, TicketIcon } from '@heroicons/react/20/solid'
 import "./App.css";
 import LayoutSidebar from "./components/LayoutSidebar";
-import PageHeading from "./components/PageHeading";
+
 
 
 const App = () => {
@@ -49,6 +46,13 @@ const App = () => {
           element={
             <SignedInOrRedirect>
               <Home />
+            </SignedInOrRedirect>
+          }/>
+          <Route
+          path="templates"
+          element={
+            <SignedInOrRedirect>
+              <Templates />
             </SignedInOrRedirect>
           }/>
         <Route
@@ -122,49 +126,16 @@ const Layout = () => {
   };
 
   return (
-    /* <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}> */
-      /* <Header />
-      <div className="app">
-        <div className="app-content">
-          <div className="main">
-            <Outlet />
-          </div>
-        </div>
-      </div> */
+
 
     <Provider api={api} navigate={navigate} auth={window.gadgetConfig.authentication}>
       <LayoutSidebar>
         <Outlet />
       </LayoutSidebar>
     </Provider>
-
-      /* <LayoutSidebar>
-        <PageHeading
-        title="Home"
-        action="Créer un template"
-        handleAction={handleAction}
-        ></PageHeading>
-        
-      </LayoutSidebar>
-      
-    </Provider> */
   );
 };
 
-// const Header = () => {
-//   return (
-//     <div className="header">
-//       <a href="/" target="_self" rel="noreferrer" style={{ textDecoration: "none" }}>
-//         {<div className="logo">{process.env.GADGET_PUBLIC_APP_SLUG}</div>}
-//       </a>
-//       <div className="header-content">
-//         <SignedOut>
-//           <Link to="/sign-in" style={{ color: "black" }}>Sign in</Link>
-//           <Link to="/sign-up" style={{ color: "black" }}>Sign up</Link>
-//         </SignedOut>
-//       </div>
-//     </div>
-//   );
-// };
+
 
 export default App;

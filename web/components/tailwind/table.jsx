@@ -14,7 +14,7 @@ const TableContext = createContext({
 export function Table({ bleed = false, dense = false, grid = false, striped = false, className, children, ...props }) {
   return (
     <TableContext.Provider value={{ bleed, dense, grid, striped }}>
-      <div className="flow-root">
+      <div className="flow-root m-5">
         <div {...props} className={clsx(className, '-mx-[--gutter] overflow-x-auto whitespace-nowrap')}>
           <div className={clsx('inline-block min-w-full align-middle', !bleed && 'sm:px-[--gutter]')}>
             <table className="min-w-full text-left text-sm/6 text-zinc-950 dark:text-white">{children}</table>

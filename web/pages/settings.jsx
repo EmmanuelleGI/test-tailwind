@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeading from "../components/PageHeading";
-import { Sidebar, SidebarBody, SidebarSection, SidebarItem } from '../components/javascript/sidebar';
+import { Sidebar, SidebarBody, SidebarSection, SidebarItem } from '../components/tailwind/sidebar';
 
 export default function Settings() {
   const handleAction = () => {
